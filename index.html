@@ -1,12 +1,416 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>TechCiberSolution</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Empresa especializada en servicios informáticos: ciberseguridad, desarrollo de software, redes y asesorías tecnológicas">
+    <title>TechCiberSolutions - Servicios Informáticos Profesionales</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>🚀 TechCiberSolution</h1>
-  <p>GitHub Pages ya está funcionando</p>
+    <!-- Navegación principal -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>TechCiberSolutions</h1>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                    <li><a href="#cobertura" class="nav-link">Cobertura</a></li>
+                    <li><a href="#faq" class="nav-link">Preguntas</a></li>
+                    <li><a href="#sobre-nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Inicio -->
+        <section id="inicio" class="hero hero--landing" aria-label="Inicio">
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <p class="eyebrow chip">SERVICIOS INFORMÁTICOS PARA EMPRESAS</p>
+                        <h2 class="hero-title">
+                            Soporte TI, redes y ciberseguridad
+                            <span class="hero-highlight">con enfoque profesional</span>
+                        </h2>
+                        <p class="hero-subtitle">
+                            Implementamos y mejoramos tu infraestructura tecnológica para asegurar continuidad operativa,
+                            seguridad y eficiencia. Atención cercana, diagnósticos claros y soluciones escalables.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+                            <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
+                        </div>
+
+                        <!-- Accesos rápidos tipo “categorías” (estilo landing) -->
+                        <!-- Accesos rápidos eliminados a petición del usuario -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Servicios -->
+        <section id="servicios" class="services section" aria-label="Servicios">
+            <div class="container">
+                <h2 class="section-title">Servicios</h2>
+                <p class="section-subtitle">
+                    Soluciones técnicas informáticas para empresas: planificación, implementación y soporte continuo.
+                </p>
+            
+                <div class="services-grid">
+                <!-- Servicio 1: Ciberseguridad -->
+                <div class="service-card service-card--ciberseguridad">
+                    <div class="service-icon">🔒</div>
+                    <h3 class="service-title">Ciberseguridad</h3>
+                    <p class="service-description">
+                        Protegemos tu infraestructura tecnológica con soluciones avanzadas de seguridad. 
+                        Implementamos sistemas de protección contra amenazas, auditorías de seguridad, 
+                        gestión de vulnerabilidades y planes de respuesta ante incidentes.
+                    </p>
+                </div>
+
+                <!-- Servicio 2: Análisis y Diseño de Software -->
+                <div class="service-card service-card--software">
+                    <div class="service-icon">💻</div>
+                    <h3 class="service-title">Análisis y Diseño de Software</h3>
+                    <p class="service-description">
+                        Desarrollamos software a medida que se adapta a las necesidades específicas de tu empresa. 
+                        Realizamos análisis exhaustivos, diseño de arquitecturas escalables y desarrollo de 
+                        aplicaciones robustas y eficientes.
+                    </p>
+                </div>
+
+                <!-- Servicio 3: Diseño de Redes de Computadoras -->
+                <div class="service-card service-card--redes">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-title">Diseño de Redes de Computadoras</h3>
+                    <p class="service-description">
+                        Creamos infraestructuras de red optimizadas para tu organización. Diseñamos topologías 
+                        eficientes, configuramos routers y switches, implementamos protocolos de comunicación 
+                        y garantizamos la conectividad de tus equipos.
+                    </p>
+                </div>
+
+                <!-- Servicio 4: Cableado Estructurado -->
+                <div class="service-card service-card--cableado">
+                    <div class="service-icon patch-panel-icon" aria-hidden="true">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Panel de conexión -->
+                            <rect x="10" y="15" width="60" height="50" rx="4" fill="#1a1a1a" stroke="#0066cc" stroke-width="2"/>
+                            <!-- Puertos del panel (filas de conectores) -->
+                            <rect x="15" y="20" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="25" y="20" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="35" y="20" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="45" y="20" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="55" y="20" width="8" height="6" rx="1" fill="#0066cc"/>
+                            
+                            <rect x="15" y="30" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="25" y="30" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="35" y="30" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="45" y="30" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="55" y="30" width="8" height="6" rx="1" fill="#0066cc"/>
+                            
+                            <rect x="15" y="40" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="25" y="40" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="35" y="40" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="45" y="40" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="55" y="40" width="8" height="6" rx="1" fill="#0066cc"/>
+                            
+                            <rect x="15" y="50" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="25" y="50" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="35" y="50" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="45" y="50" width="8" height="6" rx="1" fill="#0066cc"/>
+                            <rect x="55" y="50" width="8" height="6" rx="1" fill="#0066cc"/>
+                            
+                            <!-- Cables conectados (líneas que salen) -->
+                            <line x1="19" y1="23" x2="5" y2="10" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="29" y1="23" x2="15" y2="8" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="39" y1="23" x2="25" y2="8" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="49" y1="23" x2="35" y2="8" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="59" y1="23" x2="45" y2="8" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            
+                            <line x1="19" y1="33" x2="5" y2="20" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="29" y1="33" x2="15" y2="18" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="39" y1="33" x2="25" y2="18" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            
+                            <line x1="19" y1="43" x2="5" y2="30" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="29" y1="43" x2="15" y2="28" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            
+                            <line x1="19" y1="53" x2="5" y2="40" stroke="#00a8ff" stroke-width="2" stroke-linecap="round"/>
+                            
+                            <!-- Etiquetas del panel -->
+                            <text x="40" y="12" font-family="Arial, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">PATCH PANEL</text>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Diseño e Instalación de Cableado Estructurado</h3>
+                    <p class="service-description">
+                        Instalamos sistemas de cableado estructurado siguiendo estándares internacionales. 
+                        Diseñamos la infraestructura física de red, realizamos instalaciones certificadas 
+                        y garantizamos la máxima calidad en la transmisión de datos.
+                    </p>
+                </div>
+
+                <!-- Servicio 5: Redes WiFi -->
+                <div class="service-card service-card--wifi">
+                    <div class="service-icon">📶</div>
+                    <h3 class="service-title">Diseño y Configuración de Redes WiFi</h3>
+                    <p class="service-description">
+                        Configuramos redes inalámbricas de alto rendimiento para tu empresa. Optimizamos la 
+                        cobertura, gestionamos la seguridad mediante protocolos avanzados y garantizamos 
+                        conexiones estables y rápidas en toda tu infraestructura.
+                    </p>
+                </div>
+
+                <!-- Servicio 6: Asesorías Generales -->
+                <div class="service-card service-card--asesorias">
+                    <div class="service-icon">🎯</div>
+                    <h3 class="service-title">Asesorías Generales en Informática</h3>
+                    <p class="service-description">
+                        Brindamos consultoría especializada para optimizar tus procesos tecnológicos. 
+                        Evaluamos tu infraestructura actual, identificamos oportunidades de mejora y 
+                        te acompañamos en la toma de decisiones estratégicas en tecnología.
+                    </p>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Proyectos (estilo “bloque informativo”) -->
+        <section id="proyectos" class="section" aria-label="Proyectos">
+            <div class="container">
+                <h2 class="section-title">Proyectos</h2>
+                <p class="section-subtitle">
+                    Especialistas en la planificación, diseño e implementación de proyectos informáticos orientados a resultados.
+                </p>
+
+                <div class="grid-2">
+                    <article class="card card--outline">
+                        <h3>Planificación y arquitectura</h3>
+                        <p class="muted">
+                            Levantamiento de requerimientos, diseño de arquitectura, estimación y hoja de ruta para ejecutar
+                            con riesgos controlados.
+                        </p>
+                        <ul class="list-check">
+                            <li>Diagnóstico y documentación</li>
+                            <li>Diseño de red y segmentación</li>
+                            <li>Buenas prácticas de seguridad</li>
+                        </ul>
+                    </article>
+                    <article class="card card--outline">
+                        <h3>Implementación y puesta en marcha</h3>
+                        <p class="muted">
+                            Instalación, configuración y validación. Entregamos evidencia, procedimientos y acompañamiento
+                            post-implementación.
+                        </p>
+                        <ul class="list-check">
+                            <li>Equipamiento de red (switch/route/AP)</li>
+                            <li>Cableado estructurado certificado</li>
+                            <li>Optimización WiFi y cobertura</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Cobertura (solo texto, sin cuadro de Atención) -->
+        <section id="cobertura" class="section" aria-label="Cobertura">
+            <div class="container">
+                <h2 class="section-title section-title--left">Cobertura</h2>
+                <p class="muted">
+                    Podemos atender en modalidad remota y coordinar visitas técnicas según necesidad. También
+                    apoyamos a empresas que requieren un partner tecnológico para despliegues y continuidad operativa.
+                </p>
+                <div class="stats">
+                    <div class="stat">
+                        <p class="stat-number">24/7</p>
+                        <p class="stat-label">Monitoreo / soporte acordado</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-number">On-site</p>
+                        <p class="stat-label">Visitas coordinadas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Preguntas Frecuentes eliminada a petición del usuario -->
+
+        <!-- Sección Sobre Nosotros -->
+        <section id="sobre-nosotros" class="about section" aria-label="Sobre nosotros">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">Sobre nosotros</h2>
+                        <p class="about-description">
+                            Somos una empresa especializada en servicios informáticos. Trabajamos con un enfoque práctico:
+                            diagnóstico claro, propuesta técnica realista y ejecución con estándares.
+                        </p>
+                        <p class="about-description">
+                            Acompañamos a empresas en su evolución tecnológica: desde redes y WiFi, hasta ciberseguridad y
+                            análisis/diseño de software para procesos clave.
+                        </p>
+                    </div>
+                    <!-- Bloque de métricas (10+ años, Equipo técnico, etc.) eliminado a petición del usuario -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="contact section" aria-label="Contacto">
+            <div class="container">
+                <h2 class="section-title">Contacto</h2>
+                <p class="section-subtitle">
+                    Cuéntanos tu necesidad y te respondemos con una propuesta clara (alcance, tiempos y próximos pasos).
+                </p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="info-item">
+                        <strong>Email:</strong>
+                        <p>contacto@techcibersolutions.com</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Teléfono:</strong>
+                        <p>+56 9 8401 0588</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ubicación:</strong>
+                        <p>Atención remota y visitas técnicas coordinadas</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Horario:</strong>
+                        <p>Lunes - Viernes: 9:00 - 18:00<br>Sábados: 10:00 - 14:00</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm" aria-label="Formulario de contacto (visual)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="servicio">Servicio de Interés</label>
+                        <select id="servicio" name="servicio">
+                            <option value="">Seleccione un servicio</option>
+                            <option value="ciberseguridad">Ciberseguridad</option>
+                            <option value="software">Análisis y Diseño de Software</option>
+                            <option value="redes">Diseño de Redes de Computadoras</option>
+                            <option value="cableado">Cableado Estructurado</option>
+                            <option value="wifi">Redes WiFi</option>
+                            <option value="asesoria">Asesorías Generales</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechCiberSolutions</h3>
+                    <p>Soluciones tecnológicas profesionales para tu negocio</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#servicios">Ciberseguridad</a></li>
+                        <li><a href="#servicios">Desarrollo de Software</a></li>
+                        <li><a href="#servicios">Redes y Cableado</a></li>
+                        <li><a href="#servicios">Asesorías</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechCiberSolutions. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para el menú móvil -->
+    <script>
+        // Funcionalidad del menú hamburguesa
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Prevenir envío del formulario (solo visual, sin backend)
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+            e.target.reset();
+        });
+
+        // Smooth scroll para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 
