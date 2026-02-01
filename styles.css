@@ -1,0 +1,1214 @@
+/* ============================================
+   RESET Y CONFIGURACIÓN BASE
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colores principales */
+    --primary-color: #0066cc;
+    --primary-dark: #0052a3;
+    --secondary-color: #00a8ff;
+    --accent-color: #00d4ff;
+    
+    /* Colores de texto */
+    --text-dark: #1a1a1a;
+    --text-light: #666666;
+    --text-white: #ffffff;
+    
+    /* Colores de fondo */
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --bg-dark: #1a1a1a;
+    
+    /* Espaciado */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    
+    /* Tipografía */
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 16px;
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    /* Sombra ultra sutil (look más plano/minimalista) */
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.06);
+    
+    /* Transiciones */
+    --transition: all 0.3s ease;
+
+    /* Bordes */
+    --border-soft: 1px solid rgba(0, 102, 204, 0.12);
+}
+
+html {
+    scroll-behavior: smooth;
+    /* ============================================
+       FONDO “WALLPAPER” HD (TECNOLOGÍA)
+       ============================================
+       1) Coloca una imagen HD en: PROYECTO_INFORMATICO/assets/tech-wallpaper.jpg
+       2) Si tu imagen se llama distinto, cambia la URL aquí.
+       3) La capa oscura (html::after) mejora la legibilidad.
+    */
+    background-color: #070a12; /* fallback si la imagen no carga */
+    /* Imagen solicitada: guarda el archivo en assets con este nombre exacto */
+    background-image: url("./assets/tecnologia azul.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* En algunos navegadores/backgrounds locales, fixed puede dar issues.
+       Si quieres “parallax”, vuelve a fixed. */
+    background-attachment: scroll;
+    min-height: 100%;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-dark);
+    /* El fondo vive en html, para que cubra toda la página sin cortes */
+    background-color: transparent;
+    overflow-x: hidden;
+    min-height: 100%;
+}
+
+/* Patrón sutil tipo “grid” para dar look tecnológico sin recargar */
+html::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+    /* Líneas suaves (grid) + un brillo muy tenue */
+    background-image:
+        linear-gradient(rgba(0, 102, 204, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 102, 204, 0.07) 1px, transparent 1px),
+        radial-gradient(800px circle at 50% 40%, rgba(255, 255, 255, 0.55), transparent 60%);
+    background-size: 64px 64px, 64px 64px, auto;
+    opacity: 0.22;
+}
+
+/* Capa de oscurecido para que el contenido sea legible sobre la imagen */
+html::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+        radial-gradient(900px circle at 18% 10%, rgba(0, 168, 255, 0.18), transparent 55%),
+        radial-gradient(700px circle at 85% 18%, rgba(0, 212, 255, 0.12), transparent 52%),
+        linear-gradient(180deg, rgba(7, 10, 18, 0.45) 0%, rgba(7, 10, 18, 0.68) 100%);
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* ============================================
+   UTILIDADES (estilo landing)
+   ============================================ */
+
+.muted {
+    color: var(--text-light);
+}
+
+.fineprint {
+    margin-top: var(--spacing-xs);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.btn-block {
+    width: 100%;
+    text-align: center;
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title--left {
+    text-align: left;
+}
+
+/* ============================================
+   HERO / LANDING (inspirado en layout de referencia)
+   ============================================ */
+
+.eyebrow {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero--landing {
+    min-height: 78vh;
+    height: auto;
+    padding: calc(var(--spacing-xl) + 1rem) 0 var(--spacing-lg);
+}
+
+.hero-grid {
+    display: grid;
+    /* Ahora solo mostramos el bloque de texto del hero,
+       por lo que centramos todo en una sola columna */
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    justify-items: center;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+    justify-content: center; /* Centra los botones horizontalmente */
+}
+
+.hero-highlight {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 700;
+}
+
+.hero-card {
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: var(--text-white);
+}
+
+.hero-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.chip-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: var(--transition);
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.chip:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.26);
+}
+
+.contact-mini {
+    list-style: none;
+    margin-top: var(--spacing-sm);
+}
+
+.contact-mini li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.contact-mini li:last-child {
+    border-bottom: 0;
+}
+
+.contact-badge {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    flex: 0 0 auto;
+}
+
+/* ============================================
+   HEADER Y NAVEGACIÓN
+   ============================================ */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Efecto “glass” moderno */
+    background-color: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+}
+
+.navbar {
+    padding: var(--spacing-sm) 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Menú hamburguesa (oculto por defecto en desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    transition: var(--transition);
+}
+
+/* ============================================
+   SECCIÓN HERO (INICIO)
+   ============================================ */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Fondo específico para la página de inicio:
+       usa la imagen `imagen de fondo.jpg` hasta la zona de los botones */
+    background: url("./assets/imagen de fondo.jpg") center center / cover no-repeat;
+    margin-top: 70px;
+    overflow: hidden;
+}
+
+.hero::before {
+    /* Se desactiva la onda decorativa para que se vea completa la imagen de fondo */
+    content: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Oscurece lo justo para que el texto sea legible sin “tapar” el fondo */
+    background: rgba(7, 10, 18, 0.35);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--text-white);
+    padding: var(--spacing-md);
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.95;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    /* Botón más plano/minimalista (sin relieve) */
+    background-color: rgba(255, 255, 255, 0.92);
+    color: var(--primary-dark);
+    border: 1px solid rgba(0, 102, 204, 0.18);
+}
+
+.btn-primary:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: var(--primary-color);
+    box-shadow: var(--shadow-soft);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.10);
+    color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.26);
+    box-shadow: none;
+}
+
+/* ============================================
+   SECCIÓN SERVICIOS
+   ============================================ */
+
+.services {
+    padding: 0 0;
+    /* Superficie translúcida para que se note el wallpaper */
+    background-color: rgba(248, 249, 250, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.1rem;
+}
+
+/* Colores específicos para la sección Proyectos (texto en blanco sobre fondo oscuro) */
+#proyectos .section-title,
+#proyectos .section-subtitle {
+    color: var(--text-white);
+}
+
+/* Subtítulo de Servicios en blanco */
+#servicios .section-subtitle {
+    color: var(--text-white);
+}
+
+/* Títulos en blanco para Sobre nosotros y Contacto */
+#sobre-nosotros .section-title,
+#contacto .section-title,
+#contacto .section-subtitle {
+    color: var(--text-white);
+}
+
+/* Textos descriptivos de Sobre nosotros en blanco y justificados */
+#sobre-nosotros .about-description {
+    color: var(--text-white);
+    text-align: justify;
+}
+
+/* Texto de las cards de Proyectos en blanco */
+#proyectos .card .muted,
+#proyectos .card p,
+#proyectos .list-check,
+#proyectos .list-check li {
+    color: var(--text-white);
+    line-height: 20px;
+}
+
+/* Colores específicos para la sección Cobertura (título, texto y métricas en blanco) */
+#cobertura .section-title,
+#cobertura .muted,
+#cobertura .stat-number,
+#cobertura .stat-label {
+    color: var(--text-white);
+}
+
+/* Colores específicos para la sección Cobertura (título, texto y métricas en blanco) */
+#cobertura .section-title,
+#cobertura .muted,
+#cobertura .stat-number,
+#cobertura .stat-label {
+    color: var(--text-white);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.service-card {
+    /* Cards con efecto 3D / relieve para servicios */
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--spacing-md);
+    border-radius: 14px;
+    border: 1px solid rgba(0, 102, 204, 0.18);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.service-card:hover {
+    /* Efecto 3D más marcado al pasar el mouse */
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(0, 102, 204, 0.35);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Tarjeta de Ciberseguridad con color de rectangulo.jpg y bordes curvos */
+.service-card--ciberseguridad {
+    background-image: url("./assets/rectangulo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 24px; /* Bordes más curvos */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    /* Relieve pronunciado con múltiples sombras */
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 10px 25px rgba(0, 0, 0, 0.3),
+        inset 0 2px 10px rgba(255, 255, 255, 0.1),
+        inset 0 -2px 10px rgba(0, 0, 0, 0.2);
+    /* Elevación inicial más marcada */
+    transform: translateY(-2px);
+    /* Asegurar que el texto sea legible sobre la imagen */
+    color: var(--text-white);
+}
+
+.service-card--ciberseguridad:hover {
+    /* Relieve aún más pronunciado al pasar el mouse */
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 
+        0 30px 70px rgba(0, 0, 0, 0.5),
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        inset 0 2px 15px rgba(255, 255, 255, 0.15),
+        inset 0 -2px 15px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.service-card--ciberseguridad .service-title,
+.service-card--ciberseguridad .service-description {
+    color: var(--text-white);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Aplicar el mismo estilo de relieve y fondo a todas las tarjetas de servicios */
+.service-card--software,
+.service-card--redes,
+.service-card--cableado,
+.service-card--wifi,
+.service-card--asesorias {
+    background-image: url("./assets/rectangulo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 24px; /* Bordes más curvos */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    /* Relieve pronunciado con múltiples sombras */
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 10px 25px rgba(0, 0, 0, 0.3),
+        inset 0 2px 10px rgba(255, 255, 255, 0.1),
+        inset 0 -2px 10px rgba(0, 0, 0, 0.2);
+    /* Elevación inicial más marcada */
+    transform: translateY(-2px);
+    /* Asegurar que el texto sea legible sobre la imagen */
+    color: var(--text-white);
+}
+
+.service-card--software:hover,
+.service-card--redes:hover,
+.service-card--cableado:hover,
+.service-card--wifi:hover,
+.service-card--asesorias:hover {
+    /* Relieve aún más pronunciado al pasar el mouse */
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 
+        0 30px 70px rgba(0, 0, 0, 0.5),
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        inset 0 2px 15px rgba(255, 255, 255, 0.15),
+        inset 0 -2px 15px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.service-card--software .service-title,
+.service-card--software .service-description,
+.service-card--redes .service-title,
+.service-card--redes .service-description,
+.service-card--cableado .service-title,
+.service-card--cableado .service-description,
+.service-card--wifi .service-title,
+.service-card--wifi .service-description,
+.service-card--asesorias .service-title,
+.service-card--asesorias .service-description {
+    color: var(--text-white);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Eliminar bordes del contenedor del icono RJ45 en Cableado Estructurado */
+.service-card--cableado .service-icon {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Ajuste para iconos de imagen dentro de los servicios (como el RJ45) */
+.service-icon img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* Icono SVG de Patch Panel para Cableado Estructurado */
+.patch-panel-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-sm);
+}
+
+.patch-panel-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+
+.service-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.service-description {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* ============================================
+   SECCIÓN SOBRE NOSOTROS
+   ============================================ */
+
+.about {
+    padding: 0 0;
+    background-color: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.about-text {
+    padding-right: var(--spacing-md);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-description {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.feature-item {
+    background-color: rgba(248, 249, 250, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-item h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.2rem;
+}
+
+.feature-item p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   SECCIÓN CONTACTO
+   ============================================ */
+
+.contact {
+    padding: 0 0;
+    background-color: rgba(248, 249, 250, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* ============================================
+   GRIDS / CARDS (Proyectos, Cobertura, etc.)
+   ============================================ */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.grid-2--split {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: start;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.78);
+    border: var(--border-soft);
+    border-radius: 14px;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.card--outline {
+    background: rgba(255, 255, 255, 0.70);
+}
+
+.list-check {
+    margin-top: var(--spacing-sm);
+    padding-left: 18px;
+    color: var(--text-light);
+}
+
+.list-check li {
+    margin: 10px 0;
+}
+
+.coverage-card {
+    background: rgba(255, 255, 255, 0.70);
+    border: var(--border-soft);
+    border-radius: 14px;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.coverage-card .contact-mini li {
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+.coverage-card .contact-badge {
+    background: rgba(0, 102, 204, 0.06);
+    border-color: rgba(0, 102, 204, 0.10);
+}
+
+.stats {
+    display: grid;
+    /* Dos tarjetas (24/7 y On-site) centradas en la página */
+    grid-template-columns: repeat(2, minmax(160px, 220px));
+    gap: 12px;
+    margin-top: var(--spacing-md);
+    justify-content: center; /* Centra el conjunto de tarjetas dentro del contenedor */
+}
+
+.stat {
+    background: rgba(255, 255, 255, 0.62);
+    border: var(--border-soft);
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: var(--shadow-soft);
+    text-align: center; /* Centra el texto dentro de cada tarjeta */
+}
+
+.stat-number {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 0.92rem;
+    color: var(--text-light);
+}
+
+/* ============================================
+   FAQ (details/summary semántico)
+   ============================================ */
+
+.faq {
+    max-width: 920px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.72);
+    border: var(--border-soft);
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: var(--shadow-soft);
+}
+
+.faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--text-dark);
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    float: right;
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+.faq-item[open] summary::after {
+    content: '–';
+}
+
+.faq-item p {
+    margin-top: 10px;
+}
+
+/* ============================================
+   Sobre nosotros (mini cards)
+   ============================================ */
+
+.inline-cards {
+    margin-top: var(--spacing-md);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.mini-card {
+    background: rgba(255, 255, 255, 0.62);
+    border: var(--border-soft);
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: var(--shadow-soft);
+}
+
+.mini-card-title {
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.contact-info {
+    background-color: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    height: fit-content;
+}
+
+.contact-info h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+.info-item {
+    margin-bottom: var(--spacing-md);
+}
+
+.info-item strong {
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Formulario de contacto */
+.contact-form {
+    background-color: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    padding: var(--spacing-lg) 0 var(--spacing-sm);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--accent-color);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: var(--text-white);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.7;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - TABLET
+   ============================================ */
+
+@media (max-width: 968px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-2,
+    .grid-2--split {
+        grid-template-columns: 1fr;
+    }
+
+    .inline-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-text {
+        padding-right: 0;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MÓVIL
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Navegación móvil */
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--bg-white);
+        width: 100%;
+        text-align: center;
+        transition: var(--transition);
+        box-shadow: var(--shadow-md);
+        padding: var(--spacing-md) 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        margin: var(--spacing-sm) 0;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* Hero section */
+    .hero {
+        min-height: 500px;
+        margin-top: 60px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Secciones */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Espaciado reducido en móvil */
+    .services,
+    .about,
+    .contact {
+        padding: var(--spacing-md) 0;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MÓVIL PEQUEÑO
+   ============================================ */
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--spacing-xs);
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .service-card,
+    .contact-form,
+    .contact-info {
+        padding: var(--spacing-sm);
+    }
+}
+
